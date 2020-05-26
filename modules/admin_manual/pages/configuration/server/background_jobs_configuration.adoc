@@ -60,6 +60,13 @@ NOTE: You have to make sure that PHP is found by Cron; hence why we've deliberat
 
 Please refer to https://linux.die.net/man/1/crontab[the crontab man page] for the exact command syntax if you don't want to have it run every minute.
 
+For every 15 minutes, use: 
+[source,console]
+----
+# crontab -u www-data -l
+0-59/15 * * * * /usr/bin/php /path/to/your/owncloud/occ system:cron
+----
+
 NOTE: There are other methods to invoke programs by the system regularly, e.g., https://wiki.archlinux.org/index.php/Systemd/Timers[systemd timers]
 
 === Webcron
